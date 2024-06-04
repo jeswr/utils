@@ -1,0 +1,4 @@
+@prefix ex: <http://example.org/> .
+@prefix exa: <http://ex.example/#> .
+
+ex:alice exa:hasGuardian ex:bob .
