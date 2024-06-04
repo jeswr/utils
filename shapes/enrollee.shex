@@ -1,0 +1,8 @@
+PREFIX ex: <http://ex.example/#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX school: <http://school.example/#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+school:Enrollee {
+  ex:hasGuardian IRI {1,2}
+}
