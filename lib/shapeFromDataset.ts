@@ -1,4 +1,6 @@
-import { LdoBase, ShapeType, createLdoDataset } from '@ldo/ldo';
+import {
+  LdoBase, ShapeType, createLdoDataset, getDataset,
+} from '@ldo/ldo';
 import { DatasetCore, NamedNode, BlankNode } from '@rdfjs/types';
 import RdfJsDb from '@shexjs/neighborhood-rdfjs';
 import { ShExValidator } from '@shexjs/validator';
@@ -19,6 +21,13 @@ export function shapeFromDataset<T extends LdoBase>(
     throw new Error(JSON.stringify(validationResult, null, 2));
   }
   return createLdoDataset([...dataset]).usingType(shapeType).fromSubject(subject);
+}
+
+export function datasetFromShape<T extends LdoBase>(
+  shapeType: ShapeType<T>,
+  obj: T,
+): DatasetCore {
+  return getDataset(createLdoDataset([]).usingType(shapeType).fromJson(obj));
 }
 
 export async function dereferenceShape<T extends LdoBase>(
