@@ -5,7 +5,9 @@ import deref from 'rdf-dereference-store';
 import { DatasetCore } from 'rdf-js';
 import { EnrolleeShapeType } from '../ldo/enrollee.shapeTypes';
 import { Enrollee } from '../ldo/enrollee.typings';
-import { datasetFromShape, dereferenceShape, shapeFromDataset, shapeMatches } from '../lib';
+import {
+  datasetFromShape, dereferenceShape, shapeFromDataset, shapeMatches,
+} from '../lib';
 
 const { namedNode } = DataFactory;
 
