@@ -5,11 +5,11 @@ import deref from 'rdf-dereference-store';
 import { DatasetCore } from 'rdf-js';
 import { EnrolleeShapeType } from '../ldo/enrollee.shapeTypes';
 import { Enrollee } from '../ldo/enrollee.typings';
-import { dereferenceShape, shapeFromDataset, shapeMatches } from '../lib';
+import { datasetFromShape, dereferenceShape, shapeFromDataset, shapeMatches } from '../lib';
 
 const { namedNode } = DataFactory;
 
-describe('shapeFromDataset & shapeMatches', () => {
+describe('shapeFromDataset & shapeMatches & datasetFromShape', () => {
   let obj: Enrollee;
   let data: DatasetCore;
 
@@ -44,5 +44,10 @@ describe('shapeFromDataset & shapeMatches', () => {
 
   it('should reject dereferenceShape with a non-conformant subject', async () => {
     await expect(dereferenceShape(EnrolleeShapeType, path.join(__dirname, 'data.ttl'), 'http://example.org/bob', { localFiles: true })).rejects.toThrow();
+  });
+
+  it('should handle datasetFromShape', () => {
+    obj['@id'] = 'http://example.org/alice';
+    expect(datasetFromShape(EnrolleeShapeType, obj)).toBeRdfIsomorphic(data);
   });
 });
