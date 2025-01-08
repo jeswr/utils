@@ -93,7 +93,7 @@
   "dependencies": {
     "@ldo/ldo": "^0.0.1-alpha.24",
     "@rdfjs/term-set": "^1.1.0",
-    "@rdfjs/types": "^1.1.0",
+    "@rdfjs/types": "^2.0.0",
     "@shexjs/neighborhood-rdfjs": "^1.0.0-alpha.29",
     "@shexjs/validator": "^1.0.0-alpha.29",
     "rdf-dereference-store": "^1.1.0",
